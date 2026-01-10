@@ -1,17 +1,16 @@
-import { useState } from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import ConsumerPreJoin from './pages/ConsumerPreJoin.jsx'
-
-import './App.css'
 import DoctorCall from './pages/DoctorCall.jsx'
+import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-    {/* <DoctorCall/> */}
-    <ConsumerPreJoin/>
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<ConsumerPreJoin />} />
+        <Route path="/doctor" element={<DoctorCall />} />
+      </Routes>
+    </Router>
   )
 }
 

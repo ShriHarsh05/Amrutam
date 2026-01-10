@@ -216,8 +216,8 @@ const styles = {
     position: "relative",
   },
   videoBoxZego: {
-    width: "640px",
-    height: "328px",
+    width: "860px",
+    height: "490px",
     borderRadius: "16px",
     background: "#111",
     display: "flex",
