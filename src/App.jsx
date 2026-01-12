@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import ConsumerPreJoin from './pages/ConsumerPreJoin.jsx'
 import DoctorCall from './pages/DoctorCall.jsx'
 import './App.css'
+import "./styles/global.css";
 
 function App() {
   return (

@@ -217,11 +217,11 @@ menuItemActive: {
   },
 
   header: {
-    height: "70px",
+    height: "60px",
     background: "#f5f3f0",
     display: "flex",
     alignItems: "center",
-    padding: "0 40px",
+    padding: "0 32px",
     justifyContent: "space-between",
     borderBottom: "1px solid #e8e6e3",
   },
@@ -239,6 +239,8 @@ menuItemActive: {
     flexDirection: "column",
     alignItems: "center",
     gap: "8px",
+    paddingTop: "18px",
+    paddingBottom: "10px",
   },
 
   phone: {
@@ -247,17 +249,17 @@ menuItemActive: {
   },
 
   logo: {
-    fontSize: "24px",
+    fontSize: "20px",
     fontWeight: "700",
     color: "#2d5016",
-    letterSpacing: "2px",
+    letterSpacing: "1.5px",
   },
 
   topNav: {
     display: "flex",
-    gap: "32px",
+    gap: "24px",
     color: "#444",
-    fontSize: "16px",
+    fontSize: "14px",
     fontWeight: "500",
   },
 
@@ -305,10 +307,10 @@ menuItemActive: {
 
   hero: {
     background: "linear-gradient(135deg, #d4f1d4 0%, #b8e6b8 100%)",
-    padding: "20px 40px",
+    padding: "12px 40px",
     position: "relative",
     overflow: "hidden",
-    minHeight: "80px",
+    minHeight: "50px",
   },
 
   heroContent: {
@@ -318,14 +320,14 @@ menuItemActive: {
   },
 
   heroTitle: {
-    fontSize: "28px",
+    fontSize: "24px",
     fontWeight: "600",
     color: "#2d5016",
-    margin: "0 0 4px 0",
+    margin: "0 0 2px 0",
   },
 
   heroSubtitle: {
-    fontSize: "14px",
+    fontSize: "13px",
     color: "#5a7c5a",
     margin: 0,
   },

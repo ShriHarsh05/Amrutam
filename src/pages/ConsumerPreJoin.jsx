@@ -171,7 +171,7 @@ const styles = {
     padding: "20px",
   },
   timer: {
-    marginBottom: "20px",
+    marginBottom: "10px",
     color: "#666",
     fontWeight: "600",
     fontSize: "16px",
@@ -179,7 +179,7 @@ const styles = {
   controls: {
     display: "flex",
     gap: "16px",
-    marginBottom: "24px",
+    marginBottom: "12px",
   },
   controlBtn: {
     padding: "10px 18px",
@@ -199,7 +199,7 @@ const styles = {
     alignItems: "center",
     justifyContent: "center",
     overflow: "hidden",
-    marginBottom: "24px",
+    marginBottom: "8px",
     position: "relative",
   },
   videoBoxZego: {
