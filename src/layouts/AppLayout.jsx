@@ -253,6 +253,9 @@ menuItemActive: {
     fontWeight: "700",
     color: "#2d5016",
     letterSpacing: "1.5px",
+    marginBottom: "0px",
+    paddingBottom: "0px",
+    paddingTop: "5px",
   },
 
   topNav: {
@@ -261,6 +264,9 @@ menuItemActive: {
     color: "#444",
     fontSize: "14px",
     fontWeight: "500",
+    paddingTop: "0px",
+    paddingBottom: "15px",
+    margin: "0px",
   },
 
   headerRight: {
