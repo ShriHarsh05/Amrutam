@@ -89,9 +89,9 @@ function DoctorLayout({ children, doctorName = "Dr. Liam Michael" }) {
       {/* Body */}
       <div style={styles.body}>
         <aside style={styles.sidebar}>
-          <div style={styles.sidebarTitle}>Main</div>
-          
-          <div style={styles.menu}>
+            <div style={styles.sidebarTitle}>Main</div>
+            
+            <div style={styles.menu}>
             <div 
               style={getMenuItemStyle('dashboard')}
               onMouseEnter={() => setHoveredItem('dashboard')}
@@ -201,7 +201,7 @@ function DoctorLayout({ children, doctorName = "Dr. Liam Michael" }) {
               <span>Forum</span>
               <FontAwesomeIcon icon={faChevronRight} style={styles.menuArrow} />
             </div>
-          </div>
+            </div>
         </aside>
 
         {/* Main content */}
@@ -220,7 +220,7 @@ const styles = {
     display: "flex",
     flexDirection: "column",
     fontFamily: "Inter, Arial, sans-serif",
-    background: "#f8f9fa",
+    background: "#f0f0f0",
     overflow: "hidden",
     margin: 0,
     padding: 0,
@@ -409,27 +409,25 @@ const styles = {
     flex: 1,
     display: "flex",
     overflow: "hidden",
+    marginTop: "8px",
   },
 
   sidebar: {
     width: "240px",
     background: "#ffffff",
-    borderRight: "1px solid #e8e6e3",
-    padding: "24px 0",
+    padding: "16px 16px",
     display: "flex",
     flexDirection: "column",
     overflowY: "auto",
-    boxShadow: "2px 0 8px rgba(0,0,0,0.05)",
+    borderRadius: "0 16px 0 0",
   },
 
   sidebarTitle: {
-    padding: "0 24px 16px",
-    fontSize: "16px",
+    padding: "0 16px 20px 16px",
+    fontSize: "18px",
     fontWeight: "600",
-    color: "#333",
+    color: "#666",
     letterSpacing: "0.5px",
-    textTransform: "uppercase",
-    borderBottom: "1px solid #f0f0f0",
     marginBottom: "16px",
   },
 
@@ -441,14 +439,14 @@ const styles = {
   menuItem: {
     display: "flex",
     alignItems: "center",
-    padding: "12px 24px",
+    padding: "12px 16px",
     cursor: "pointer",
     transition: "all 0.3s ease",
     gap: "12px",
     color: "#666",
     fontSize: "14px",
     borderRadius: "8px",
-    margin: "2px 12px",
+    margin: "2px 0",
     position: "relative",
     fontWeight: "500",
   },
@@ -478,11 +476,11 @@ const styles = {
   },
 
   subMenu: {
-    background: "#f8f9fa",
+    background: "#f0f0f0",
     paddingLeft: "12px",
     borderRadius: "0 0 8px 8px",
-    marginLeft: "12px",
-    marginRight: "12px",
+    marginLeft: "0px",
+    marginRight: "0px",
     overflow: "hidden",
     animation: "slideDown 0.3s ease-out",
     borderLeft: "3px solid #4a7c59",
@@ -491,7 +489,7 @@ const styles = {
   subMenuItem: {
     display: "flex",
     alignItems: "center",
-    padding: "8px 24px",
+    padding: "8px 16px",
     cursor: "pointer",
     gap: "8px",
     color: "#666",
@@ -517,9 +515,9 @@ const styles = {
     flex: 1,
     display: "flex",
     flexDirection: "column",
-    padding: "24px",
+    padding: "16px",
     overflowY: "auto",
-    background: "#f8f9fa",
+    background: "#f0f0f0",
   },
 };
 
