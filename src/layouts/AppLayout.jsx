@@ -1,4 +1,16 @@
 import { useState } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { 
+  faShoppingCart, 
+  faBell, 
+  faUser,
+  faChartBar,
+  faCalendarAlt,
+  faWallet,
+  faCommentDots,
+  faChevronDown,
+  faTicket
+} from '@fortawesome/free-solid-svg-icons';
 
 function AppLayout({ children, showHero = false, userName = "Priya" }) {
   const [hoveredItem, setHoveredItem] = useState(null);
@@ -30,10 +42,24 @@ function AppLayout({ children, showHero = false, userName = "Priya" }) {
         </div>
         
         <div style={styles.headerRight}>
-          <div style={styles.iconBadge}>💬 <span style={styles.badge}>5</span></div>
-          <div style={styles.iconBadge}>🛒 <span style={styles.badge}>7</span></div>
-          <div style={styles.iconBadge}>🔔 <span style={styles.badge}>1</span></div>
-          <div style={styles.profileIcon}>👤</div>
+          <div style={styles.iconBadge}>
+            <FontAwesomeIcon icon={faWallet} style={styles.headerIcon} />
+            <span style={styles.badge}>₹2</span>
+          </div>
+          <div style={styles.iconBadge}>
+            <FontAwesomeIcon icon={faShoppingCart} style={styles.headerIcon} />
+            <span style={styles.badge}>1</span>
+          </div>
+          <div style={styles.iconBadge}>
+            <FontAwesomeIcon icon={faBell} style={styles.headerIcon} />
+            <span style={styles.badge}>1</span>
+          </div>
+          <div style={styles.profileContainer}>
+            <div style={styles.profileIcon}>
+              <FontAwesomeIcon icon={faUser} style={styles.profileIconSvg} />
+            </div>
+            <FontAwesomeIcon icon={faChevronDown} style={styles.dropdownArrow} />
+          </div>
         </div>
       </header>
 
@@ -67,7 +93,7 @@ function AppLayout({ children, showHero = false, userName = "Priya" }) {
         onMouseEnter={() => setHoveredItem('dashboard')}
         onMouseLeave={() => setHoveredItem(null)}
       >
-        <span style={styles.menuIcon}>📊</span>
+        <FontAwesomeIcon icon={faChartBar} style={styles.menuIconSvg} />
         <span>Dashboard</span>
       </div>
       
@@ -76,7 +102,7 @@ function AppLayout({ children, showHero = false, userName = "Priya" }) {
         onMouseEnter={() => setHoveredItem('appointments')}
         onMouseLeave={() => setHoveredItem(null)}
       >
-        <span style={styles.menuIcon}>📅</span>
+        <FontAwesomeIcon icon={faCalendarAlt} style={styles.menuIconSvg} />
         <span>Appointments</span>
       </div>
       
@@ -85,7 +111,7 @@ function AppLayout({ children, showHero = false, userName = "Priya" }) {
         onMouseEnter={() => setHoveredItem('wallet')}
         onMouseLeave={() => setHoveredItem(null)}
       >
-        <span style={styles.menuIcon}>💰</span>
+        <FontAwesomeIcon icon={faWallet} style={styles.menuIconSvg} />
         <span>My Wallet</span>
       </div>
       
@@ -94,7 +120,7 @@ function AppLayout({ children, showHero = false, userName = "Priya" }) {
         onMouseEnter={() => setHoveredItem('chats')}
         onMouseLeave={() => setHoveredItem(null)}
       >
-        <span style={styles.menuIcon}>💬</span>
+        <FontAwesomeIcon icon={faCommentDots} style={styles.menuIconSvg} />
         <span>My Chats</span>
       </div>
       
@@ -103,7 +129,7 @@ function AppLayout({ children, showHero = false, userName = "Priya" }) {
         onMouseEnter={() => setHoveredItem('orders')}
         onMouseLeave={() => setHoveredItem(null)}
       >
-        <span style={styles.menuIcon}>📦</span>
+        <FontAwesomeIcon icon={faTicket} style={styles.menuIconSvg} />
         <span>My Orders</span>
       </div>
     </div>
@@ -192,6 +218,12 @@ menuIcon: {
   transition: "transform 0.2s ease",
 },
 
+menuIconSvg: {
+  fontSize: "16px",
+  width: "20px",
+  color: "inherit",
+},
+
 menuItemActive: {
   display: "flex",
   alignItems: "center",
@@ -218,7 +250,7 @@ menuItemActive: {
 
   header: {
     height: "60px",
-    background: "#f5f3f0",
+    background: "#fef7e3",
     display: "flex",
     alignItems: "center",
     padding: "0 32px",
@@ -279,8 +311,15 @@ menuItemActive: {
 
   iconBadge: {
     position: "relative",
-    fontSize: "20px",
     cursor: "pointer",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
+  headerIcon: {
+    fontSize: "18px",
+    color: "#666",
   },
 
   badge: {
@@ -309,6 +348,23 @@ menuItemActive: {
     alignItems: "center",
     justifyContent: "center",
     cursor: "pointer",
+  },
+
+  profileContainer: {
+    display: "flex",
+    alignItems: "center",
+    gap: "8px",
+    cursor: "pointer",
+  },
+
+  dropdownArrow: {
+    fontSize: "12px",
+    color: "#666",
+  },
+
+  profileIconSvg: {
+    fontSize: "16px",
+    color: "white",
   },
 
   hero: {

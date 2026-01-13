@@ -1,4 +1,22 @@
 import { useState } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { 
+  faBell, 
+  faUser,
+  faChartBar,
+  faCalendarAlt,
+  faUserMd,
+  faUniversity,
+  faUsers,
+  faCalendarCheck,
+  faCommentDots,
+  faClipboardList,
+  faChevronDown,
+  faSearch,
+  faChevronRight,
+  faEnvelope,
+  faPlus
+} from '@fortawesome/free-solid-svg-icons';
 
 function DoctorLayout({ children, doctorName = "Dr. Liam Michael" }) {
   const [hoveredItem, setHoveredItem] = useState(null);
@@ -37,7 +55,7 @@ function DoctorLayout({ children, doctorName = "Dr. Liam Michael" }) {
         
         <div style={styles.headerCenter}>
           <div style={styles.searchContainer}>
-            <span style={styles.searchIcon}>🔍</span>
+            <FontAwesomeIcon icon={faSearch} style={styles.searchIconSvg} />
             <input 
               type="text" 
               placeholder="Search Here!" 
@@ -48,18 +66,23 @@ function DoctorLayout({ children, doctorName = "Dr. Liam Michael" }) {
         
         <div style={styles.headerRight}>
           <div style={styles.iconBadge}>
-            <span style={styles.notificationIcon}>🔔</span>
+            <FontAwesomeIcon icon={faEnvelope} style={styles.headerIcon} />
             <span style={styles.badge}>5</span>
           </div>
           <div style={styles.iconBadge}>
-            <span style={styles.notificationIcon}>🔔</span>
+            <FontAwesomeIcon icon={faBell} style={styles.headerIcon} />
             <span style={styles.badge}>9</span>
           </div>
           <div style={styles.doctorInfo}>
             <span style={styles.doctorName}>{doctorName}</span>
             <span style={styles.doctorPhone}>+91234567890</span>
           </div>
-          <div style={styles.profileIcon}>👤</div>
+          <div style={styles.profileContainer}>
+            <div style={styles.profileIcon}>
+              <FontAwesomeIcon icon={faUser} style={styles.profileIconSvg} />
+            </div>
+            <FontAwesomeIcon icon={faChevronDown} style={styles.dropdownArrow} />
+          </div>
         </div>
       </header>
 
@@ -74,9 +97,9 @@ function DoctorLayout({ children, doctorName = "Dr. Liam Michael" }) {
               onMouseEnter={() => setHoveredItem('dashboard')}
               onMouseLeave={() => setHoveredItem(null)}
             >
-              <span style={styles.menuIcon}>📊</span>
+              <FontAwesomeIcon icon={faChartBar} style={styles.menuIconSvg} />
               <span>Dashboard</span>
-              <span style={styles.menuArrow}>›</span>
+              <FontAwesomeIcon icon={faChevronRight} style={styles.menuArrow} />
             </div>
             
             <div 
@@ -84,9 +107,9 @@ function DoctorLayout({ children, doctorName = "Dr. Liam Michael" }) {
               onMouseEnter={() => setHoveredItem('schedule')}
               onMouseLeave={() => setHoveredItem(null)}
             >
-              <span style={styles.menuIcon}>📅</span>
+              <FontAwesomeIcon icon={faCalendarAlt} style={styles.menuIconSvg} />
               <span>Schedule</span>
-              <span style={styles.menuArrow}>›</span>
+              <FontAwesomeIcon icon={faChevronRight} style={styles.menuArrow} />
             </div>
             
             <div 
@@ -94,9 +117,9 @@ function DoctorLayout({ children, doctorName = "Dr. Liam Michael" }) {
               onMouseEnter={() => setHoveredItem('consultation')}
               onMouseLeave={() => setHoveredItem(null)}
             >
-              <span style={styles.menuIcon}>🩺</span>
+              <FontAwesomeIcon icon={faUserMd} style={styles.menuIconSvg} />
               <span>Consultation</span>
-              <span style={styles.menuArrow}>›</span>
+              <FontAwesomeIcon icon={faChevronRight} style={styles.menuArrow} />
             </div>
             
             <div 
@@ -104,9 +127,9 @@ function DoctorLayout({ children, doctorName = "Dr. Liam Michael" }) {
               onMouseEnter={() => setHoveredItem('bankinfo')}
               onMouseLeave={() => setHoveredItem(null)}
             >
-              <span style={styles.menuIcon}>🏦</span>
+              <FontAwesomeIcon icon={faUniversity} style={styles.menuIconSvg} />
               <span>Bank Info</span>
-              <span style={styles.menuArrow}>›</span>
+              <FontAwesomeIcon icon={faChevronRight} style={styles.menuArrow} />
             </div>
             
             <div 
@@ -114,9 +137,9 @@ function DoctorLayout({ children, doctorName = "Dr. Liam Michael" }) {
               onMouseEnter={() => setHoveredItem('patients')}
               onMouseLeave={() => setHoveredItem(null)}
             >
-              <span style={styles.menuIcon}>👥</span>
+              <FontAwesomeIcon icon={faUsers} style={styles.menuIconSvg} />
               <span>Patients</span>
-              <span style={styles.menuArrow}>›</span>
+              <FontAwesomeIcon icon={faChevronRight} style={styles.menuArrow} />
             </div>
             
             <div style={styles.menuSection}>
@@ -126,15 +149,16 @@ function DoctorLayout({ children, doctorName = "Dr. Liam Michael" }) {
                 onMouseLeave={() => setHoveredItem(null)}
                 onClick={() => setAppointmentsOpen(!appointmentsOpen)}
               >
-                <span style={styles.menuIcon}>📋</span>
+                <FontAwesomeIcon icon={faCalendarCheck} style={styles.menuIconSvg} />
                 <span>Appointments</span>
-                <span style={{
-                  ...styles.menuArrow,
-                  transform: appointmentsOpen ? "rotate(90deg)" : "rotate(0deg)",
-                  transition: "transform 0.2s ease"
-                }}>
-                  ▶
-                </span>
+                <FontAwesomeIcon 
+                  icon={faChevronRight} 
+                  style={{
+                    ...styles.menuArrow,
+                    transform: appointmentsOpen ? "rotate(90deg)" : "rotate(0deg)",
+                    transition: "transform 0.2s ease"
+                  }}
+                />
               </div>
               {appointmentsOpen && (
                 <div style={styles.subMenu}>
@@ -143,7 +167,7 @@ function DoctorLayout({ children, doctorName = "Dr. Liam Michael" }) {
                     onMouseEnter={() => setHoveredItem('appointmentlist')}
                     onMouseLeave={() => setHoveredItem(null)}
                   >
-                    <span style={styles.subMenuIcon}>›</span>
+                    <FontAwesomeIcon icon={faClipboardList} style={styles.subMenuIconSvg} />
                     <span>Appointment List</span>
                   </div>
                   <div 
@@ -151,7 +175,7 @@ function DoctorLayout({ children, doctorName = "Dr. Liam Michael" }) {
                     onMouseEnter={() => setHoveredItem('addappointment')}
                     onMouseLeave={() => setHoveredItem(null)}
                   >
-                    <span style={styles.subMenuIcon}>›</span>
+                    <FontAwesomeIcon icon={faPlus} style={styles.subMenuIconSvg} />
                     <span>Add Appointment</span>
                   </div>
                 </div>
@@ -163,9 +187,9 @@ function DoctorLayout({ children, doctorName = "Dr. Liam Michael" }) {
               onMouseEnter={() => setHoveredItem('chat')}
               onMouseLeave={() => setHoveredItem(null)}
             >
-              <span style={styles.menuIcon}>💬</span>
+              <FontAwesomeIcon icon={faCommentDots} style={styles.menuIconSvg} />
               <span>Chat</span>
-              <span style={styles.menuArrow}>›</span>
+              <FontAwesomeIcon icon={faChevronRight} style={styles.menuArrow} />
             </div>
             
             <div 
@@ -173,9 +197,9 @@ function DoctorLayout({ children, doctorName = "Dr. Liam Michael" }) {
               onMouseEnter={() => setHoveredItem('forum')}
               onMouseLeave={() => setHoveredItem(null)}
             >
-              <span style={styles.menuIcon}>📝</span>
+              <FontAwesomeIcon icon={faClipboardList} style={styles.menuIconSvg} />
               <span>Forum</span>
-              <span style={styles.menuArrow}>›</span>
+              <FontAwesomeIcon icon={faChevronRight} style={styles.menuArrow} />
             </div>
           </div>
         </aside>
@@ -203,8 +227,8 @@ const styles = {
   },
 
   header: {
-    height: "70px",
-    background: "#ffffff",
+    height: "60px",
+    background: "#faf7f2",
     display: "flex",
     alignItems: "center",
     padding: "0 24px",
@@ -251,11 +275,15 @@ const styles = {
     flex: "1",
     display: "flex",
     justifyContent: "center",
+    alignItems: "center",
+    maxWidth: "400px",
+    margin: "0 auto",
   },
 
   searchContainer: {
     position: "relative",
-    width: "300px",
+    width: "100%",
+    maxWidth: "350px",
   },
 
   searchIcon: {
@@ -267,14 +295,25 @@ const styles = {
     fontSize: "16px",
   },
 
+  searchIconSvg: {
+    position: "absolute",
+    left: "12px",
+    top: "50%",
+    transform: "translateY(-50%)",
+    color: "#999",
+    fontSize: "14px",
+    zIndex: 1,
+  },
+
   searchInput: {
     width: "100%",
-    padding: "8px 12px 8px 36px",
+    padding: "8px 12px 8px 40px",
     border: "1px solid #ddd",
     borderRadius: "20px",
     fontSize: "14px",
     outline: "none",
-    background: "#f8f9fa",
+    background: "#ffffff",
+    color: "#666",
   },
 
   headerRight: {
@@ -288,6 +327,14 @@ const styles = {
   iconBadge: {
     position: "relative",
     cursor: "pointer",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
+  headerIcon: {
+    fontSize: "18px",
+    color: "#666",
   },
 
   notificationIcon: {
@@ -339,7 +386,23 @@ const styles = {
     alignItems: "center",
     justifyContent: "center",
     cursor: "pointer",
-    fontSize: "18px",
+  },
+
+  profileContainer: {
+    display: "flex",
+    alignItems: "center",
+    gap: "8px",
+    cursor: "pointer",
+  },
+
+  profileIconSvg: {
+    fontSize: "16px",
+    color: "white",
+  },
+
+  dropdownArrow: {
+    fontSize: "12px",
+    color: "#666",
   },
 
   body: {
@@ -396,11 +459,17 @@ const styles = {
     transition: "transform 0.2s ease",
   },
 
+  menuIconSvg: {
+    fontSize: "16px",
+    width: "20px",
+    color: "inherit",
+  },
+
   menuArrow: {
     marginLeft: "auto",
     fontSize: "12px",
     color: "#999",
-    transition: "color 0.2s ease",
+    transition: "all 0.2s ease",
   },
 
   menuSection: {
@@ -436,6 +505,12 @@ const styles = {
   subMenuIcon: {
     fontSize: "12px",
     color: "#999",
+  },
+
+  subMenuIconSvg: {
+    fontSize: "12px",
+    width: "16px",
+    color: "inherit",
   },
 
   main: {
